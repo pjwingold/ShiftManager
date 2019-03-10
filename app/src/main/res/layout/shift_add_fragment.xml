@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="currentTime"
+            type="String" />
+    </data>
+
+    <LinearLayout style="@style/ContentPadded">
+
+        <RadioGroup
+            android:id="@+id/shift_select"
+            style="@style/WrapContentLayout"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/content_spacing">
+
+            <RadioButton
+                android:id="@+id/start_radio"
+                style="@style/WrapContentLayout"
+                android:buttonTint="@color/colorAccent"
+                android:checked="true"
+                android:text="@string/add_shift_option_start" />
+
+            <RadioButton
+                android:id="@+id/end_radio"
+                style="@style/WrapContentLayout"
+                android:buttonTint="@color/colorAccent"
+                android:text="@string/add_shift_option_end" />
+        </RadioGroup>
+
+        <View style="@style/SectionSeparator" />
+
+        <android.support.constraint.ConstraintLayout style="@style/SectionLayout">
+
+            <TextView
+                android:id="@+id/start_date_label"
+                style="@style/Text.Body"
+                android:text="@string/add_shift_date"
+                android:textAppearance="@style/TextAppearance.Bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/start_date_value"
+                style="@style/Text.Body"
+                android:text="@string/add_shift_no_date_selected"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/start_date_label" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <View style="@style/SectionSeparator" />
+
+        <android.support.constraint.ConstraintLayout style="@style/SectionLayout">
+
+            <TextView
+                android:id="@+id/start_time_label"
+                style="@style/Text.Body"
+                android:text="@string/add_shift_time"
+                android:textAppearance="@style/TextAppearance.Bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/start_time_value"
+                style="@style/Text.Body"
+                android:text="@{currentTime}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/start_time_label"
+                tools:text="15:00" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <View style="@style/SectionSeparator" />
+
+    </LinearLayout>
+</layout>

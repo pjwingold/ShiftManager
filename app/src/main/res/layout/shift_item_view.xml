@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="shift"
+            type="au.com.pjwin.shiftmanager.model.Shift" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        style="@style/ContentPadded"
+        android:paddingBottom="@dimen/content_spacing">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{shift.imageUrl}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/start_shift_label"
+            style="@style/Text.Body"
+            android:layout_marginStart="@dimen/content_spacing"
+            android:text="@string/shift_start"
+            android:textAppearance="@style/TextAppearance.Bold"
+            app:layout_constraintBottom_toTopOf="@id/end_shift_label"
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintTop_toTopOf="@id/image"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/end_shift_label"
+            style="@style/Text.Body"
+            android:layout_marginStart="@dimen/content_spacing"
+            android:text="@string/shift_end"
+            android:textAppearance="@style/TextAppearance.Bold"
+            app:layout_constraintBottom_toBottomOf="@id/image"
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintTop_toBottomOf="@id/start_shift_label"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/start_shift_value"
+            style="@style/Text.Body"
+            android:paddingStart="@dimen/content_spacing"
+            android:text="@{shift.start}"
+            app:layout_constraintStart_toEndOf="@id/start_shift_label"
+            app:layout_constraintTop_toTopOf="@id/start_shift_label"
+            tools:text="2019-03-15T15:53:00+10:00" />
+
+        <TextView
+            android:id="@+id/end_shift_value"
+            style="@style/Text.Body"
+            android:paddingStart="@dimen/content_spacing"
+            android:text="@{shift.end}"
+            app:layout_constraintStart_toEndOf="@id/start_shift_label"
+            app:layout_constraintTop_toTopOf="@id/end_shift_label"
+            tools:text="2019-03-15T17:53:00+10:00" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

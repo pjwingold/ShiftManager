@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Shift Manager</string>
+
+    <string name="add_shift_menu">Add Shift</string>
+    <string name="add_shift_screen">Add Shift</string>
+    <string name="add_shift_error_no_date">No date selected</string>
+    <string name="add_shift_error_end">Unable to end a shift</string>
+    <string name="add_shift_error_start">Unable to start a shift</string>
+    <string name="add_shift_option_end">End</string>
+    <string name="add_shift_option_start">Start</string>
+    <string name="add_shift_date">Date</string>
+    <string name="add_shift_time">Time</string>
+    <string name="add_shift_no_date_selected">No date selected</string>
+
+    <string name="shift_start">Shift Start:</string>
+    <string name="shift_end">Shift End:</string>
+</resources>

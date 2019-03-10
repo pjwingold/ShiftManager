@@ -1,0 +1,83 @@
+ext.versionName = '1.0'
+ext.versionCode = 1
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion prop("version.build.tools")
+    compileSdkVersion prop("version.sdk.max").toInteger()
+
+    defaultConfig {
+        applicationId "au.com.pjwin.shiftmanager"
+        minSdkVersion prop("version.sdk.min").toInteger()
+        targetSdkVersion prop("version.sdk.max").toInteger()
+        versionCode project.versionCode
+        versionName project.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'SCHEMA', '"https"'
+        buildConfigField 'String', 'HOST', '"apjoqdqpi3.execute-api.us-west-2.amazonaws.com"'
+        buildConfigField 'int', 'PORT', '443'
+        buildConfigField 'String', 'CONTEXT_ROOT', '"dmc"'
+        buildConfigField 'long', 'CONNECTION_TIMEOUT', '15'
+        buildConfigField 'long', 'READ_TIMEOUT', '15'
+        buildConfigField 'String', 'CREDENTIAL', '"5bbdd777cd7332b17c04b62043ef590376b29cab"'
+        buildConfigField 'String', 'AUTHORISATION', '"Deputy"'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    android {
+        compileOptions {
+            sourceCompatibility 1.8
+            targetCompatibility 1.8
+        }
+    }
+
+    testOptions {
+        unitTests {
+            all {
+                jvmArgs '-noverify'
+            }
+            returnDefaultValues = true
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+    String glideVersion = "4.8.0"
+    String mockkVersion = "1.8.13"
+    String robolectricVersion = prop("version.robolectric")
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':common')
+
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    //glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    testImplementation "org.robolectric:shadows-multidex:$robolectricVersion"
+    testImplementation "io.mockk:mockk:$mockkVersion"
+
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

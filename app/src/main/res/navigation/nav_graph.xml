@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/shift_home">
+
+    <fragment
+        android:id="@+id/shift_home"
+        android:name="au.com.pjwin.shiftmanager.ui.ShiftListFragment"
+        android:label="ShiftListFragment"
+        tools:layout="@layout/shift_list_fragment">
+
+        <action
+            android:id="@+id/action_shift_home_to_shift_add"
+            app:destination="@id/add_shift" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_shift"
+        android:name="au.com.pjwin.shiftmanager.ui.ShiftAddFragment"
+        android:label="ShiftAddFragment"
+        tools:layout="@layout/shift_add_fragment">
+
+        <!--<action
+            android:id="@+id/finish_add"
+            app:popUpTo="@id/shift_home"
+            app:popUpToInclusive="true" />-->
+    </fragment>
+</navigation>
