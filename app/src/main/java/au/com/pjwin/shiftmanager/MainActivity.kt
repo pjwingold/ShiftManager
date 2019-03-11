@@ -1,5 +1,6 @@
 package au.com.pjwin.shiftmanager
 
+import android.os.Build
 import android.os.Bundle
 import au.com.pjwin.commonlib.ui.BaseFragment
 import au.com.pjwin.commonlib.ui.SwipeRefreshActivity
@@ -12,7 +13,9 @@ class MainActivity : ViewActivity(), SwipeRefreshActivity {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        window.statusBarColor = Util.color(R.color.colorPrimary)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = Util.color(R.color.colorPrimary)
+        }
     }
 
     //pull down refresh

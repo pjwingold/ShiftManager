@@ -31,6 +31,10 @@ android {
     }
 
     buildTypes {
+        debug {
+            multiDexEnabled true
+            applicationIdSuffix '.debug'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -60,6 +64,7 @@ android {
 }
 
 dependencies {
+    String googlePlayServicesVersion = "16.0.0"
     String glideVersion = "4.8.0"
     String mockkVersion = "1.8.13"
     String robolectricVersion = prop("version.robolectric")
@@ -69,6 +74,9 @@ dependencies {
 
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    implementation "com.google.android.gms:play-services-location:$googlePlayServicesVersion"
+
     //glide
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"

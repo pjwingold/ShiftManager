@@ -32,6 +32,6 @@ data class RequestDatetime(
 
 }
 
-data class AddRequest(var time: String,
+data class AddRequest(var time: String = "",
                       var latitude: String = "0.0000",
                       var longitude: String = "0.0000")
