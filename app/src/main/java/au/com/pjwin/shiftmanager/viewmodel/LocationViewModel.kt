@@ -23,9 +23,7 @@ class LocationViewModel : ViewModel() {
 
     fun getDeviceLocation() {
         try {
-            val hasLocationPerm: Boolean = Pref.SHARED_PREF[PrefKey.HAS_LOCATION_PERM]?: false
-
-            if (hasLocationPerm) {
+            if (Pref.SHARED_PREF[PrefKey.HAS_LOCATION_PERM, false] == true) {
                 Common.cachedThreadPool.execute {
                     fusedLocationProviderClient.lastLocation
                         .addOnSuccessListener {
