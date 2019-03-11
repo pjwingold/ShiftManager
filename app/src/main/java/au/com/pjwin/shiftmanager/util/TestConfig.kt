@@ -11,11 +11,13 @@ open class TestConfig : Common.Config {
 
     override fun port(): Int = 8081
 
-    override fun readTimeout(): Long = 5
-
     override fun schema(): String = "http"
 
-    override fun connectionTimeout(): Long = 5
+    override fun contextRoot() = BuildConfig.CONTEXT_ROOT
+
+    override fun readTimeout(): Long = 10
+
+    override fun connectionTimeout(): Long = 10
 
     override fun debug(): Boolean = BuildConfig.DEBUG
 }

@@ -52,6 +52,17 @@ android {
         }
     }
 
+    sourceSets {
+        test {
+            java.srcDirs = [
+                    'src/test/java'
+            ]
+            resources.srcDirs = [//need full path
+                    "${project(':app').projectDir}/src/test/res/raw"
+            ]
+        }
+    }
+
     testOptions {
         unitTests {
             all {
@@ -72,7 +83,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':common')
 
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
     implementation "com.google.android.gms:play-services-location:$googlePlayServicesVersion"
